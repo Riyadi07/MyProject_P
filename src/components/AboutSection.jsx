@@ -73,7 +73,7 @@ export default function AboutSection() {
 
     const renderElasticCard = () => {
       if (container) {
-        const isMobile = window.innerWidth < 640;
+        const isMobile = window.innerWidth < 768;
         if (!isDragging) {
           const springK = 0.045;
           const damping = 0.83;
@@ -153,8 +153,8 @@ export default function AboutSection() {
           <p className="text-xs sm:text-sm lg:text-base text-slate-400 mt-2 leading-relaxed">Sedikit cerita tentang latar belakang dan minat saya di dunia teknologi.</p>
         </div>
 
-        <div className="mt-2 grid items-start gap-8 lg:grid-cols-12 lg:gap-12">
-          <div ref={containerRef} className="lg:col-span-5 flex justify-center items-start relative min-h-[420px] overflow-visible">
+        <div className="mt-2 grid grid-cols-1 md:grid-cols-12 items-start gap-8 lg:gap-12">
+          <div ref={containerRef} className="md:col-span-5 flex justify-center items-start relative min-h-[420px] overflow-visible">
             <canvas ref={canvasRef} className={`absolute inset-x-0 -top-40 w-full h-[calc(100%+160px)] pointer-events-none z-10 transition-opacity duration-300 ${inView ? 'opacity-100' : 'opacity-0'}`} />
             <div
               ref={cardRef}
@@ -176,7 +176,7 @@ export default function AboutSection() {
             </div>
           </div>
 
-          <div className="lg:col-span-7 space-y-5">
+          <div className="md:col-span-7 space-y-5">
             <div className="rounded-2xl border border-slate-800/80 bg-slate-950/50 p-6 sm:p-7 backdrop-blur-sm">
                 <p className="mt-1 max-w-xl text-base leading-7 text-slate-400 sm:text-lg">
                     Saya adalah lulusan S1 Informatika dari Universitas Jenderal Achmad Yani Yogyakarta dengan minat yang kuat pada pengembangan perangkat lunak, 

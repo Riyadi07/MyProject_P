@@ -94,7 +94,7 @@ export default function ProjectsSection() {
       {selectedProject &&
         createPortal(
           <div className="fixed inset-0 z-[999] flex items-center justify-center bg-slate-950/85 backdrop-blur-xl transition-all duration-300 p-3 sm:p-6">
-            <div className="relative flex flex-col w-full max-w-sm sm:max-w-xl lg:max-w-2xl h-[85vh] max-h-[650px] rounded-2xl sm:rounded-3xl border border-blue-500/50 bg-slate-950/95 ring-1 ring-blue-500/40 shadow-[0_0_35px_rgba(59,130,246,0.3)] overflow-hidden text-white my-auto transform scale-100 transition-all duration-300">
+            <div className="relative flex flex-col w-full max-w-[90%] sm:max-w-xl md:max-w-3xl lg:max-w-3xl h-[75vh] sm:h-[80vh] md:h-[85vh] max-h-[650px] rounded-2xl sm:rounded-3xl border border-blue-500/50 bg-slate-950/95 ring-1 ring-blue-500/40 shadow-[0_0_35px_rgba(59,130,246,0.3)] overflow-hidden text-white my-auto transform scale-100 transition-all duration-300">
               <button
                 type="button"
                 onClick={closeModal}
@@ -103,7 +103,7 @@ export default function ProjectsSection() {
                 ✕
               </button>
 
-              <div className="relative w-full h-[50%] sm:h-[60%] bg-slate-900 border-b border-blue-500/40 shrink-0 group overflow-hidden">
+              <div className="relative w-full h-[42%] sm:h-[50%] md:h-[55%] bg-slate-900 border-b border-blue-500/40 shrink-0 group overflow-hidden">
                 <img
                   src={`/images/${selectedProject.images[currentImgIndex]}`}
                   alt="Project Image"

@@ -94,7 +94,7 @@ export default function ProjectsSection() {
       {selectedProject &&
         createPortal(
           <div className="fixed inset-0 z-[999] flex items-center justify-center bg-slate-950/85 backdrop-blur-xl transition-all duration-300 p-3 sm:p-6">
-            <div className="relative flex flex-col w-full max-w-sm sm:max-w-2xl lg:max-w-3xl h-[70vh] sm:h-[80vh] rounded-2xl sm:rounded-3xl border border-blue-500/50 bg-slate-950/95 ring-1 ring-blue-500/40 shadow-[0_0_35px_rgba(59,130,246,0.3)] overflow-hidden text-white my-auto transform scale-100 transition-all duration-300">
+            <div className="relative flex flex-col w-full max-w-sm sm:max-w-xl lg:max-w-2xl h-[85vh] max-h-[650px] rounded-2xl sm:rounded-3xl border border-blue-500/50 bg-slate-950/95 ring-1 ring-blue-500/40 shadow-[0_0_35px_rgba(59,130,246,0.3)] overflow-hidden text-white my-auto transform scale-100 transition-all duration-300">
               <button
                 type="button"
                 onClick={closeModal}
@@ -138,7 +138,7 @@ export default function ProjectsSection() {
                 </div>
               </div>
 
-              <div className="flex-1 flex flex-col min-h-0 bg-slate-950 relative">
+              <div className="flex-1 flex flex-col min-h-0 bg-slate-950 relative overflow-hidden">
                 <div className="flex-1 overflow-y-auto p-3.5 sm:p-5 space-y-3 custom-scrollbar">
                   <div>
                     <h3 className="text-sm sm:text-xl font-bold text-white pr-6 leading-snug">{selectedProject.title}</h3>

@@ -1,5 +1,5 @@
-import { useEffect, useState, useRef } from 'react';
-import MeteorCanvas from './components/MeteorCanvas';
+import { useEffect, useState } from 'react';
+import { ThemeProvider } from './components/MeteorCanvas';
 import Navbar from './components/Navbar';
 import HeroSection from './components/HeroSection';
 import AboutSection from './components/AboutSection';
@@ -10,29 +10,17 @@ import Footer from './components/Footer';
 
 export default function App() {
   const [loading, setLoading] = useState(true);
-  const glowRef = useRef(null);
 
   useEffect(() => {
     const timer = setTimeout(() => {
       setLoading(false);
     }, 700);
 
-    const handleMouseMove = (e) => {
-      if (glowRef.current) {
-        glowRef.current.style.left = `${e.clientX}px`;
-        glowRef.current.style.top = `${e.clientY}px`;
-      }
-    };
-
-    window.addEventListener('mousemove', handleMouseMove);
-    return () => {
-      clearTimeout(timer);
-      window.removeEventListener('mousemove', handleMouseMove);
-    };
+    return () => clearTimeout(timer);
   }, []);
 
   return (
-    <>
+    <ThemeProvider>
       {loading && (
         <div id="preloader" className="fixed inset-0 z-[100] flex flex-col items-center justify-center bg-slate-950 transition-opacity duration-700">
           <div className="relative flex items-center justify-center">
@@ -47,13 +35,7 @@ export default function App() {
         </div>
       )}
 
-      <div className="relative min-h-screen bg-slate-950 text-slate-100 antialiased overflow-x-hidden">
-        <MeteorCanvas />
-        <div
-          ref={glowRef}
-          className="fixed pointer-events-none z-0 w-[400px] h-[400px] rounded-full bg-blue-600/25 blur-[120px] -translate-x-1/2 -translate-y-1/2 transition-opacity duration-300"
-        ></div>
-
+      <div className="relative min-h-screen bg-slate-50 dark:bg-slate-950 text-slate-800 dark:text-slate-100 antialiased overflow-x-hidden transition-colors duration-300">
         <Navbar />
         <main className="relative z-10">
           <HeroSection />
@@ -62,9 +44,8 @@ export default function App() {
           <ProjectsSection />
           <ContactSection />
         </main>
-
         <Footer />
       </div>
-    </>
+    </ThemeProvider>
   );
 }

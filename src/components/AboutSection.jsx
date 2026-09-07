@@ -145,67 +145,73 @@ export default function AboutSection() {
   }, []);
 
   return (
-    <section id="about" className="relative z-10 border-y border-slate-800/80 bg-slate-900/40 py-12 sm:py-16 overflow-hidden">
+    <section id="about" className="relative z-10 border-y border-slate-200 dark:border-slate-800/80 bg-slate-100/60 dark:bg-slate-900/40 py-12 sm:py-16 overflow-hidden transition-colors duration-300">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="relative z-30 text-center max-w-2xl mx-auto mb-6 px-4">
-          <span className="text-xs sm:text-sm font-bold uppercase tracking-widest text-blue-400">Kenali Saya</span>
-          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-white mt-1">Tentang Saya</h2>
-          <p className="text-xs sm:text-sm lg:text-base text-slate-400 mt-2 leading-relaxed">Sedikit cerita tentang latar belakang dan minat saya di dunia teknologi.</p>
+          <span className="text-xs sm:text-sm font-bold uppercase tracking-widest text-blue-600 dark:text-blue-400">Kenali Saya</span>
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white mt-1">Tentang Saya</h2>
+          <p className="text-xs sm:text-sm lg:text-base text-slate-600 dark:text-slate-400 mt-2 leading-relaxed">Sedikit cerita tentang latar belakang dan minat saya di dunia teknologi.</p>
         </div>
 
         <div className="mt-2 grid grid-cols-1 md:grid-cols-12 items-start gap-8 lg:gap-12">
+          {/* Container Lanyard Badge Card */}
           <div ref={containerRef} className="md:col-span-5 flex justify-center items-start relative min-h-[420px] overflow-visible">
             <canvas ref={canvasRef} className={`absolute inset-x-0 -top-40 w-full h-[calc(100%+160px)] pointer-events-none z-10 transition-opacity duration-300 ${inView ? 'opacity-100' : 'opacity-0'}`} />
             <div
               ref={cardRef}
-              className={`relative z-20 w-72 h-[390px] rounded-3xl border-2 border-blue-500/40 bg-slate-950 shadow-[0_10px_35px_rgba(59,130,246,0.25)] p-3.5 overflow-hidden cursor-grab active:cursor-grabbing select-none group transition-opacity duration-300 transform-gpu shrink-0 ${
+              className={`relative z-20 w-72 h-[390px] rounded-3xl border-2 border-slate-200 dark:border-blue-500/40 bg-white dark:bg-slate-950 shadow-xl dark:shadow-[0_10px_35px_rgba(59,130,246,0.25)] p-3.5 overflow-hidden cursor-grab active:cursor-grabbing select-none group transition-opacity duration-300 transform-gpu shrink-0 ${
                 inView ? 'opacity-100' : 'opacity-0'
               }`}
               style={{ willChange: 'transform' }}
             >
-              <div className="absolute top-2 left-1/2 -translate-x-1/2 z-40 h-3.5 w-11 rounded-full bg-slate-800 border border-slate-600 flex justify-center items-center shadow-md">
-                <div className="h-1.5 w-6 rounded-full bg-blue-400"></div>
+              {/* Tag Penjepit Kartu Lanyard */}
+              <div className="absolute top-2 left-1/2 -translate-x-1/2 z-40 h-3.5 w-11 rounded-full bg-slate-100 dark:bg-slate-800 border border-slate-300 dark:border-slate-600 flex justify-center items-center shadow-sm">
+                <div className="h-1.5 w-6 rounded-full bg-slate-400 dark:bg-blue-400"></div>
               </div>
-              <div className="relative w-full h-[300px] mt-2 overflow-hidden rounded-2xl border border-slate-800 shadow-md">
+
+              {/* Bingkai Foto Profil */}
+              <div className="relative w-full h-[300px] mt-2 overflow-hidden rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm">
                 <img src="/images/profile2.jpg" alt="Profile 2" className="w-full h-full object-cover object-top pointer-events-none transition-transform duration-500 group-hover:scale-105" />
-                <div className="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-slate-950 via-slate-950/40 to-transparent"></div>
+                <div className="hidden dark:block absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-slate-950 via-slate-950/40 to-transparent"></div>
               </div>
+
+              {/* Nama */}
               <div className="flex flex-col items-center text-center mt-2">
-                <h3 className="text-base font-bold text-white tracking-wide">Slamet Riyadi</h3>
+                <h3 className="text-base font-bold text-slate-900 dark:text-white tracking-wide">Slamet Riyadi</h3>
               </div>
             </div>
           </div>
 
+          {/* Deskripsi & Informasi */}
           <div className="md:col-span-7 space-y-5">
-            <div className="rounded-2xl border border-slate-800/80 bg-slate-950/50 p-6 sm:p-7 backdrop-blur-sm">
-                <p className="mt-1 max-w-xl text-base leading-7 text-slate-400 sm:text-lg">
-                    Saya adalah lulusan S1 Informatika dari Universitas Jenderal Achmad Yani Yogyakarta dengan minat yang kuat pada pengembangan perangkat lunak, 
-                    teknologi web modern, dan machine learning. Pengalaman saya mencakup pembuatan aplikasi web, apalikasi mobile, perancangan arsitektur backend,
-                    serta natural Language Processing (NLP).
-                </p>
+            <div className="rounded-2xl border border-slate-200 dark:border-slate-800/80 bg-white/80 dark:bg-slate-950/50 p-6 sm:p-7 backdrop-blur-sm shadow-sm">
+              <p className="mt-1 max-w-xl text-base leading-7 text-slate-700 dark:text-slate-400 sm:text-lg">
+                Saya adalah lulusan S1 Informatika dari Universitas Jenderal Achmad Yani Yogyakarta dengan minat pada pengembangan aplikasi web, pengembangan backend dan perancangan arsitektur aplikasi. Memiliki pengalaman dalam pengembangan aplikasi, integrasi backend dan frontend, serta penerapan Natural Language Processing (NLP) pada proyek dan penelitian.
+              </p>
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <div className="rounded-xl border border-slate-800 bg-slate-950/40 p-4">
-                <p className="text-xs font-semibold uppercase tracking-wider text-blue-400">Pendidikan</p>
-                <p className="mt-1 text-base font-bold text-white">S1 Informatika</p>
-                <p className="text-xs text-slate-400 mt-0.5 mb-5">Universitas Jenderal Achmad Yani Yogyakarta</p>
-                <p className="mt-1 text-base font-bold text-white">SMA Negeri 1 Semaka</p>
-                <p className="text-xs text-slate-400 mt-0.5">MIPA (Matematika dan Ilmu Pengetahuan Alam)</p>
+              <div className="rounded-xl border border-slate-200 dark:border-slate-800 bg-white/80 dark:bg-slate-950/40 p-4 shadow-sm">
+                <p className="text-xs font-semibold uppercase tracking-wider text-blue-600 dark:text-blue-400">Pendidikan</p>
+                <p className="mt-1 text-base font-bold text-slate-900 dark:text-white">S1 Informatika</p>
+                <p className="text-xs text-slate-500 dark:text-slate-400 mt-0.5 mb-5">Universitas Jenderal Achmad Yani Yogyakarta</p>
+                <p className="mt-1 text-base font-bold text-slate-900 dark:text-white">SMA Negeri 1 Semaka</p>
+                <p className="text-xs text-slate-500 dark:text-slate-400 mt-0.5">MIPA (Matematika dan Ilmu Pengetahuan Alam)</p>
               </div>
-              <div className="rounded-xl border border-slate-800 bg-slate-950/40 p-5">
-                <p className="text-xs font-semibold uppercase tracking-wider text-blue-400 mb-3">Minat & Keahlian</p>
+
+              <div className="rounded-xl border border-slate-200 dark:border-slate-800 bg-white/80 dark:bg-slate-950/40 p-5 shadow-sm">
+                <p className="text-xs font-semibold uppercase tracking-wider text-blue-600 dark:text-blue-400 mb-3">Minat & Keahlian</p>
                 <div className="space-y-3 text-sm font-medium">
-                  <div className="flex items-center gap-3 text-slate-200">
-                    <i className="devicon-go-original-wordmark text-xl text-blue-400"></i>
+                  <div className="flex items-center gap-3 text-slate-800 dark:text-slate-200">
+                    <i className="devicon-go-original-wordmark text-xl text-blue-600 dark:text-blue-400"></i>
                     <span>Backend / Golang & Node.js</span>
                   </div>
-                  <div className="flex items-center gap-3 text-slate-200">
-                    <i className="devicon-react-original text-xl text-cyan-400"></i>
+                  <div className="flex items-center gap-3 text-slate-800 dark:text-slate-200">
+                    <i className="devicon-react-original text-xl text-cyan-600 dark:text-cyan-400"></i>
                     <span>Frontend / React & Laravel</span>
                   </div>
-                  <div className="flex items-center gap-3 text-slate-200">
-                    <i className="devicon-python-plain text-xl text-yellow-400"></i>
+                  <div className="flex items-center gap-3 text-slate-800 dark:text-slate-200">
+                    <i className="devicon-python-plain text-xl text-amber-500 dark:text-yellow-400"></i>
                     <span>Machine Learning & NLP (Python)</span>
                   </div>
                 </div>

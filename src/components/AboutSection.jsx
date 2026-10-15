@@ -186,7 +186,7 @@ export default function AboutSection() {
           <div className="md:col-span-7 space-y-5">
             <div className="rounded-2xl border border-slate-200 dark:border-slate-800/80 bg-white/80 dark:bg-slate-950/50 p-6 sm:p-7 backdrop-blur-sm shadow-sm">
               <p className="mt-1 max-w-xl text-base leading-7 text-slate-700 dark:text-slate-400 sm:text-lg">
-                Saya adalah lulusan S1 Informatika dari Universitas Jenderal Achmad Yani Yogyakarta dengan minat pada pengembangan aplikasi web, pengembangan backend dan perancangan arsitektur aplikasi. Memiliki pengalaman dalam pengembangan aplikasi, integrasi backend dan frontend, serta penerapan Natural Language Processing (NLP) pada proyek dan penelitian.
+                Saya adalah lulusan S1 Informatika dari Universitas Jenderal Achmad Yani Yogyakarta dengan minat pada pengembangan perangkat lunak, backend dan perancangan arsitektur aplikasi. Memiliki pengalaman dalam pengembangan aplikasi, integrasi backend dan frontend, serta penerapan Natural Language Processing (NLP) pada proyek dan penelitian.
               </p>
             </div>
 

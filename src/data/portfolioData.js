@@ -6,6 +6,7 @@ export const skillsData = [
   { name: 'JavaScript', category: 'Frontend Development', icon: 'devicon-javascript-plain colored' },
   { name: 'HTML', category: 'Frontend Development', icon: 'devicon-html5-plain colored' },
   { name: 'Laravel', category: 'Web Application Development', icon: 'devicon-laravel-original colored' },
+  { name: 'Node.js', category: 'Backend Development', icon: 'devicon-nodejs-plain colored' },
   { name: 'Tailwind CSS', category: 'UI Development', icon: 'devicon-tailwindcss-original colored' },
   { name: 'MySQL', category: 'Database', icon: 'devicon-mysql-original colored' },
 ];

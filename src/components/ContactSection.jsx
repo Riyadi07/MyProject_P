@@ -67,19 +67,20 @@ export default function ContactSection() {
               </div>
             </a>
 
-            <a href="https://instagram.com/riyadii0_" target="_blank" rel="noreferrer" className="group flex items-center gap-3.5 sm:gap-4 rounded-2xl border border-slate-200 dark:border-slate-800/80 bg-white/80 dark:bg-slate-950/40 p-3.5 sm:p-5 backdrop-blur-md transition duration-300 hover:border-pink-500/50 hover:bg-white dark:hover:bg-slate-900/60 shadow-sm">
-              <div className="flex h-10 w-10 sm:h-12 sm:w-12 shrink-0 items-center justify-center rounded-xl border border-pink-500/30 bg-pink-50 dark:bg-pink-600/10 text-pink-600 dark:text-pink-400 transition duration-300 group-hover:scale-110 group-hover:bg-pink-600 group-hover:text-white">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-5 w-5 sm:h-6 sm:w-6">
-                  <rect width="20" height="20" x="2" y="2" rx="5" ry="5"/>
-                  <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
-                  <line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/>
-                </svg>
-              </div>
-              <div className="min-w-0 flex-1">
-                <p className="text-[10px] sm:text-xs font-semibold uppercase tracking-wider text-pink-600 dark:text-pink-400">Instagram</p>
-                <p className="text-xs sm:text-base font-bold text-slate-900 dark:text-white group-hover:text-pink-600 dark:group-hover:text-pink-300 transition truncate">@riyadii0_</p>
-              </div>
-            </a>
+<a
+  href="https://www.linkedin.com/in/slamet-riyadi7"
+  target="_blank"
+  rel="noreferrer"
+  className="group flex items-center gap-3.5 sm:gap-4 rounded-2xl border border-slate-200 dark:border-slate-800/80 bg-white/80 dark:bg-slate-950/40 p-3.5 sm:p-5 backdrop-blur-md transition duration-300 hover:border-blue-500/50 hover:bg-white dark:hover:bg-slate-900/60 shadow-sm"
+>
+  <div className="flex h-10 w-10 sm:h-12 sm:w-12 shrink-0 items-center justify-center rounded-xl border border-blue-500/30 bg-blue-50 dark:bg-blue-600/10 text-blue-600 dark:text-blue-400 transition duration-300 group-hover:scale-110 group-hover:bg-blue-600 group-hover:text-white">
+    <i className="devicon-linkedin-plain text-xl sm:text-2xl shrink-0"></i>
+  </div>
+  <div className="min-w-0 flex-1">
+    <p className="text-[10px] sm:text-xs font-semibold uppercase tracking-wider text-blue-600 dark:text-blue-400">LinkedIn</p>
+    <p className="text-xs sm:text-base font-bold text-slate-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-300 transition truncate">Slamet Riyadi</p>
+  </div>
+</a>
 
             <div className="flex items-center gap-3.5 sm:gap-4 rounded-2xl border border-slate-200 dark:border-slate-800/80 bg-white/80 dark:bg-slate-950/40 p-3.5 sm:p-5 backdrop-blur-md shadow-sm">
               <div className="flex h-10 w-10 sm:h-12 sm:w-12 shrink-0 items-center justify-center rounded-xl border border-indigo-500/30 bg-indigo-50 dark:bg-indigo-600/10 text-indigo-600 dark:text-indigo-400">

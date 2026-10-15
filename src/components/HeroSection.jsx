@@ -6,7 +6,7 @@ export default function HeroSection() {
 
   useEffect(() => {
     const typed = new Typed(typedRef.current, {
-      strings: ['Software Developer', 'Backend Developer'],
+      strings: ['Backend Developer', 'Full-Stack Developer', 'Software Developer'],
       typeSpeed: 60,
       backSpeed: 40,
       loop: true,
@@ -32,41 +32,57 @@ export default function HeroSection() {
               <span ref={typedRef} className="text-blue-600 dark:text-blue-400"></span>
             </h2>
             <p className="mt-4 max-w-xl text-base leading-7 text-slate-600 dark:text-slate-400 sm:text-lg">
-              Lulusan S1 Informatika yang memiliki minat dalam pengembangan web, pengembangan backend, dan machine learning. Saya senang membangun solusi digital yang bermanfaat, andal, dan berorientasi pada pengguna.
+              Lulusan S1 Informatika yang memiliki minat dalam pengembangan perangkat lunak, backend, dan machine learning. Saya senang membangun solusi digital yang bermanfaat, andal, dan berorientasi pada pengguna.
             </p>
 
             {/* Tombol Aksi */}
-            <div className="mt-6 sm:mt-8 flex flex-wrap items-center gap-2.5 sm:gap-3.5 w-full">
-              <a
-                href="#projects"
-                className="flex-1 min-w-[130px] inline-flex items-center justify-center gap-1.5 sm:gap-2 rounded-xl bg-slate-900 dark:bg-blue-600 px-2.5 py-2.5 sm:px-4 sm:py-3 text-[11px] sm:text-xs lg:text-sm font-semibold text-white shadow-md transition-all duration-300 hover:bg-slate-700 dark:hover:bg-blue-500 hover:shadow-slate-900/20 active:scale-95 hover:-translate-y-0.5"
-              >
-                <span>View My Projects</span>
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor" className="h-3.5 w-3.5 sm:h-4 sm:w-4 shrink-0 transition-transform duration-300 group-hover:translate-y-0.5">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="m6 9 6 6 6-6" />
-                </svg>
-              </a>
+            <div className="mt-6 sm:mt-8 flex flex-wrap items-center gap-2.5 sm:gap-3 w-full">
+              <div className="flex items-center gap-2.5 sm:gap-3 w-full md:w-auto flex-1 min-w-[280px]">
+                <a
+                  href="#projects"
+                  className="flex-1 inline-flex items-center justify-center gap-1.5 sm:gap-2 rounded-xl bg-slate-900 dark:bg-blue-600 px-3 py-2.5 sm:px-4 sm:py-3 text-xs sm:text-xs md:text-sm font-semibold text-white shadow-md transition-all duration-300 hover:bg-slate-800 dark:hover:bg-blue-500 hover:shadow-lg active:scale-95 hover:-translate-y-0.5"
+                >
+                  <span className="whitespace-nowrap">View My Projects</span>
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor" className="h-3.5 w-3.5 sm:h-4 sm:w-4 shrink-0 transition-transform duration-300 group-hover:translate-y-0.5">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="m6 9 6 6 6-6" />
+                  </svg>
+                </a>
 
-              <a
-                href="/cv/CV_Slamet_Riyadi.pdf"
-                download="CV_Slamet_Riyadi.pdf"
-                className="flex-1 min-w-[120px] inline-flex items-center justify-center gap-1.5 sm:gap-2 rounded-xl border border-slate-300 dark:border-blue-500/30 bg-slate-200/60 dark:bg-blue-500/10 px-2.5 py-2.5 sm:px-4 sm:py-3 text-[11px] sm:text-xs lg:text-sm font-semibold text-slate-800 dark:text-blue-400 backdrop-blur-md transition duration-300 hover:bg-slate-300/80 dark:hover:bg-blue-500/20 hover:-translate-y-0.5"
-              >
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor" className="h-3.5 w-3.5 sm:h-4 sm:w-4 shrink-0">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5M16.5 12 12 16.5m0 0L7.5 12m4.5 4.5V3" />
-                </svg>
-                <span>Download CV</span>
-              </a>
+                <a
+                  href="/cv/CV_Slamet_Riyadi.pdf"
+                  download="CV_Slamet_Riyadi.pdf"
+                  className="flex-1 inline-flex items-center justify-center gap-1.5 sm:gap-2 rounded-xl border border-slate-300 dark:border-blue-500/30 bg-slate-200/60 dark:bg-blue-500/10 px-3 py-2.5 sm:px-4 sm:py-3 text-xs sm:text-xs md:text-sm font-semibold text-slate-800 dark:text-blue-400 backdrop-blur-md transition duration-300 hover:bg-slate-300/80 dark:hover:bg-blue-500/20 active:scale-95 hover:-translate-y-0.5"
+                >
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor" className="h-3.5 w-3.5 sm:h-4 sm:w-4 shrink-0">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5M16.5 12 12 16.5m0 0L7.5 12m4.5 4.5V3" />
+                  </svg>
+                  <span className="whitespace-nowrap">Download CV</span>
+                </a>
+              </div>
 
-              <a
-                href="https://github.com/Riyadi07"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex-1 min-w-[100px] inline-flex items-center justify-center gap-1.5 sm:gap-2 rounded-xl border border-slate-300 dark:border-slate-800 bg-white dark:bg-slate-900/80 px-2.5 py-2.5 sm:px-4 sm:py-3 text-[11px] sm:text-xs lg:text-sm font-semibold text-slate-700 dark:text-slate-300 shadow-sm backdrop-blur-md transition duration-300 hover:border-slate-400 dark:hover:border-slate-700 hover:text-slate-900 dark:hover:text-white hover:-translate-y-0.5"
-              >
-                <i className="devicon-github-original text-sm sm:text-lg shrink-0"></i>
-                <span>GitHub</span>
-              </a>
+              <div className="flex items-center gap-2.5 sm:gap-3 justify-start w-full md:w-auto">
+                <a
+                  href="https://www.linkedin.com/in/slamet-riyadi07"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="LinkedIn Profile"
+                  title="LinkedIn Profile"
+                  className="inline-flex h-[40px] w-[40px] md:h-[44px] md:w-[44px] shrink-0 items-center justify-center rounded-xl border border-slate-300 dark:border-slate-800 bg-white dark:bg-slate-900/80 text-slate-700 dark:text-slate-300 shadow-sm backdrop-blur-md transition duration-300 hover:border-blue-500 hover:text-blue-600 dark:hover:text-blue-400 active:scale-95 hover:-translate-y-0.5"
+                >
+                  <i className="devicon-linkedin-plain text-lg sm:text-xl shrink-0 text-blue-600 dark:text-blue-400"></i>
+                </a>
+
+                <a
+                  href="https://github.com/Riyadi07"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="GitHub Profile"
+                  title="GitHub Profile"
+                  className="inline-flex h-[40px] w-[40px] md:h-[44px] md:w-[44px] shrink-0 items-center justify-center rounded-xl border border-slate-300 dark:border-slate-800 bg-white dark:bg-slate-900/80 text-slate-700 dark:text-slate-300 shadow-sm backdrop-blur-md transition duration-300 hover:border-slate-400 dark:hover:border-slate-700 hover:text-slate-900 dark:hover:text-white active:scale-95 hover:-translate-y-0.5"
+                >
+                  <i className="devicon-github-original text-lg sm:text-xl shrink-0"></i>
+                </a>
+              </div>
             </div>
           </div>
 

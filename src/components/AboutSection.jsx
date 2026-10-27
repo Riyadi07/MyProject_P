@@ -204,7 +204,7 @@ export default function AboutSection() {
                 <div className="space-y-3 text-sm font-medium">
                   <div className="flex items-center gap-3 text-slate-800 dark:text-slate-200">
                     <i className="devicon-go-original-wordmark text-xl text-blue-600 dark:text-blue-400"></i>
-                    <span>Backend / Golang & Node.js</span>
+                    <span>Backend / Golang, Flask & Node.js</span>
                   </div>
                   <div className="flex items-center gap-3 text-slate-800 dark:text-slate-200">
                     <i className="devicon-react-original text-xl text-cyan-600 dark:text-cyan-400"></i>

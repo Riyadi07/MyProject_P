@@ -1,14 +1,21 @@
 export const skillsData = [
   { name: 'Golang', category: 'Backend Development', icon: 'devicon-go-original-wordmark colored' },
   { name: 'Python', category: 'Data & Machine Learning', icon: 'devicon-python-plain colored' },
-  { name: 'React.js', category: 'Frontend Development', icon: 'devicon-react-original colored' },
-  { name: 'Flutter', category: 'Mobile Development', icon: 'devicon-flutter-plain colored' },
   { name: 'JavaScript', category: 'Frontend Development', icon: 'devicon-javascript-plain colored' },
   { name: 'HTML', category: 'Frontend Development', icon: 'devicon-html5-plain colored' },
+  { name: 'CSS', category: 'Frontend Development', icon: 'devicon-css3-plain colored' },
+  { name: 'React.js', category: 'Frontend Development', icon: 'devicon-react-original colored' },
   { name: 'Laravel', category: 'Web Application Development', icon: 'devicon-laravel-original colored' },
   { name: 'Node.js', category: 'Backend Development', icon: 'devicon-nodejs-plain colored' },
+  { name: 'Django', category: 'Backend Development', icon: 'devicon-django-plain text-slate-800 dark:text-emerald-400' },
+  { name: 'Flask', category: 'Backend Development', icon: 'devicon-flask-original text-slate-800 dark:text-slate-100' },
+  { name: 'Flutter', category: 'Mobile Development', icon: 'devicon-flutter-plain colored' },
   { name: 'Tailwind CSS', category: 'UI Development', icon: 'devicon-tailwindcss-original colored' },
   { name: 'MySQL', category: 'Database', icon: 'devicon-mysql-original colored' },
+  { name: 'MongoDB', category: 'Database', icon: 'devicon-mongodb-plain colored' },
+  { name: 'Postman', category: 'Tools & API Testing', icon: 'devicon-postman-plain colored' },
+  { name: 'Git', category: 'Version Control', icon: 'devicon-git-plain colored' },
+  { name: 'GitHub', category: 'Repository Hosting', icon: 'devicon-github-original text-slate-800 dark:text-white' },
 ];
 
 export const projectsData = [

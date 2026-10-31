@@ -62,7 +62,7 @@ export default function HeroSection() {
 
               <div className="flex items-center gap-2.5 sm:gap-3 justify-start w-full md:w-auto">
                 <a
-                  href="https://www.linkedin.com/in/slamet-riyadi07"
+                  href="https://www.linkedin.com/in/slamet-riyadi7"
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="LinkedIn Profile"

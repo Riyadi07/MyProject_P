@@ -76,6 +76,17 @@ export const projectsData = [
   },
   {
     id: 'project-6',
+    title: 'Aplikasi Text Prosedur',
+    shortDescription: ' Apliksi Media Pembelajaran Teks Prosedur Siswa',
+    fullDescription: 'Aplikasi media pembelajaran interaktif yang dirancang untuk membantu siswa memahami konsep teks prosedur serta mempraktikkan cara membuat dan mengekspor dokumen PDF secara efektif, runtut, dan profesional. Aplikasi ini dibangun menggunakan React dan Vite dengan antarmuka modern yang responsif di perangkat mobile, tablet, maupun desktop. Fitur utamanya mencakup pertanyaan pemantik, materi struktur dan ciri kebahasaan teks prosedur, contoh langkah kerja terstruktur, simulasi interaktif menyusun urutan langkah dan detektif instruksi dengan umpan balik popup real-time, panduan praktik mandiri, serta kuis evaluasi dengan penilaian skor otomatis.',
+    thumbnail: 'project-7.1.png',
+    images: ['project-7.1.png', 'project-7.2.png', 'project-7.3.png'],
+    technologies: ['JavaScript ', 'React.js', 'Tailwind CSS',],
+    github: 'https://github.com/Riyadi07/App-Prosedur-text',
+    demo: null,
+  },
+  {
+    id: 'project-7',
     title: 'Aplikasi Pembelajaran',
     shortDescription: 'Aplikasi quiz online berbasis JavaScript',
     fullDescription: 'Aplikasi quiz online berbasis JavaScript merupakan solusi interaktif yang memungkinkan pengguna untuk mengikuti kuis pilihan ganda secara langsung melalui browser tanpa perlu instalasi tambahan. Aplikasi ini menampilkan pertanyaan secara dinamis dan memungkinkan pengguna memilih jawaban yang kemudian akan dinilai secara otomatis. Dengan menggunakan JavaScript, aplikasi dapat mengelola logika kuis, seperti navigasi antar pertanyaan, penghitungan skor, dan memberikan umpan balik secara real-time. Hal ini menciptakan pengalaman belajar yang lebih menarik dan responsif bagi pengguna, sehingga proses evaluasi pembelajaran menjadi lebih efektif dan interaktif.',
@@ -84,5 +95,5 @@ export const projectsData = [
     technologies: ['JavaScript', 'HTML'],
     github: 'https://github.com/Riyadi07/Aplikasi-Pembelajaran-berbasis-JavaScript',
     demo: null,
-  },
+  }, 
 ];

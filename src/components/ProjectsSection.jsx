@@ -1,10 +1,44 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { createPortal } from 'react-dom';
 import { projectsData } from '../data/portfolioData';
 
 export default function ProjectsSection() {
   const [selectedProject, setSelectedProject] = useState(null);
   const [currentImgIndex, setCurrentImgIndex] = useState(0);
+
+  // State untuk Pagination Responsif
+  const [currentPage, setCurrentPage] = useState(1);
+  const [itemsPerPage, setItemsPerPage] = useState(6);
+
+  // Deteksi ukuran layar: Desktop (lg: >= 1024px) tampil 6, Mobile & Tablet (< 1024px) tampil 4
+  useEffect(() => {
+    const updateItemsPerPage = () => {
+      if (window.innerWidth >= 1024) {
+        setItemsPerPage(6);
+      } else {
+        setItemsPerPage(4);
+      }
+    };
+
+    updateItemsPerPage();
+    window.addEventListener('resize', updateItemsPerPage);
+    return () => window.removeEventListener('resize', updateItemsPerPage);
+  }, []);
+
+  // Hitung total halaman & potong data proyek sesuai halaman aktif
+  const totalPages = Math.ceil(projectsData.length / itemsPerPage);
+  const safePage = Math.min(currentPage, Math.max(1, totalPages));
+  const startIndex = (safePage - 1) * itemsPerPage;
+  const currentProjects = projectsData.slice(startIndex, startIndex + itemsPerPage);
+
+  // Ganti halaman & scroll lembut ke atas section #projects
+  const handlePageChange = (page) => {
+    setCurrentPage(page);
+    const section = document.getElementById('projects');
+    if (section) {
+      section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  };
 
   const openModal = (project) => {
     setSelectedProject(project);
@@ -40,8 +74,9 @@ export default function ProjectsSection() {
           </p>
         </div>
 
+        {/* Grid Daftar Proyek (Sudah dipotong per halaman) */}
         <div className="mt-8 grid grid-cols-2 gap-3 sm:gap-6 lg:grid-cols-3">
-          {projectsData.map((project) => (
+          {currentProjects.map((project) => (
             <article
               key={project.id}
               onClick={() => openModal(project)}
@@ -74,39 +109,90 @@ export default function ProjectsSection() {
                 </div>
               </div>
 
-{project.technologies.length > 0 && (
-  <div className="mt-3 flex flex-wrap gap-1.5 pt-1">
-    {project.technologies.slice(0, 3).map((tech, idx) => (
-      <span
-        key={idx}
-        className="rounded-md bg-slate-100 border border-slate-300 text-slate-700 dark:bg-blue-500/10 dark:border-blue-500/20 dark:text-blue-400 px-2 py-0.5 text-[10px] font-semibold transition-colors duration-300"
-      >
-        {tech}
-      </span>
-    ))}
-    {project.technologies.length > 3 && (
-      <span className="text-[10px] text-slate-500 dark:text-slate-400 self-center font-medium">
-        +{project.technologies.length - 3}
-      </span>
-    )}
-  </div>
-)}
+              {project.technologies.length > 0 && (
+                <div className="mt-3 flex flex-wrap gap-1.5 pt-1">
+                  {project.technologies.slice(0, 3).map((tech, idx) => (
+                    <span
+                      key={idx}
+                      className="rounded-md bg-slate-100 border border-slate-300 text-slate-700 dark:bg-blue-500/10 dark:border-blue-500/20 dark:text-blue-400 px-2 py-0.5 text-[10px] font-semibold transition-colors duration-300"
+                    >
+                      {tech}
+                    </span>
+                  ))}
+                  {project.technologies.length > 3 && (
+                    <span className="text-[10px] text-slate-500 dark:text-slate-400 self-center font-medium">
+                      +{project.technologies.length - 3}
+                    </span>
+                  )}
+                </div>
+              )}
             </article>
           ))}
         </div>
+
+        {/* Kontrol Navigasi Halaman (< 1 2 >) - Muncul otomatis jika proyek lebih dari 1 halaman */}
+        {totalPages > 1 && (
+          <div className="mt-8 sm:mt-10 flex items-center justify-center gap-2">
+            {/* Tombol Previous (<) */}
+            <button
+              type="button"
+              onClick={() => handlePageChange(Math.max(1, safePage - 1))}
+              disabled={safePage === 1}
+              aria-label="Halaman Sebelumnya"
+              className="flex h-9 w-9 sm:h-10 sm:w-10 items-center justify-center rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900/80 text-slate-700 dark:text-slate-300 transition hover:border-blue-500 hover:text-blue-600 dark:hover:text-blue-400 disabled:opacity-40 disabled:pointer-events-none shadow-sm"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
+              </svg>
+            </button>
+
+            {/* Nomor Halaman (1, 2, ...) */}
+            {Array.from({ length: totalPages }, (_, idx) => idx + 1).map((page) => {
+              const isActive = safePage === page;
+              return (
+                <button
+                  key={page}
+                  type="button"
+                  onClick={() => handlePageChange(page)}
+                  className={`flex h-9 w-9 sm:h-10 sm:w-10 items-center justify-center rounded-xl text-xs sm:text-sm font-bold transition shadow-sm ${
+                    isActive
+                      ? 'bg-slate-900 text-white dark:bg-blue-600 dark:text-white shadow-md scale-105'
+                      : 'border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900/80 text-slate-700 dark:text-slate-300 hover:border-blue-500 hover:text-blue-600 dark:hover:text-blue-400'
+                  }`}
+                >
+                  {page}
+                </button>
+              );
+            })}
+
+            {/* Tombol Next (>) */}
+            <button
+              type="button"
+              onClick={() => handlePageChange(Math.min(totalPages, safePage + 1))}
+              disabled={safePage === totalPages}
+              aria-label="Halaman Berikutnya"
+              className="flex h-9 w-9 sm:h-10 sm:w-10 items-center justify-center rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900/80 text-slate-700 dark:text-slate-300 transition hover:border-blue-500 hover:text-blue-600 dark:hover:text-blue-400 disabled:opacity-40 disabled:pointer-events-none shadow-sm"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+              </svg>
+            </button>
+          </div>
+        )}
       </div>
 
+      {/* Modal Detail Proyek (Tetap Sama & Responsif) */}
       {selectedProject &&
         createPortal(
           <div className="fixed inset-0 z-[999] flex items-center justify-center bg-slate-900/60 dark:bg-slate-950/85 backdrop-blur-xl transition-all duration-300 p-3 sm:p-6 overflow-y-auto">
             <div className="relative flex flex-col w-full max-w-[90%] sm:max-w-xl md:max-w-3xl lg:max-w-3xl h-[75vh] sm:h-[80vh] md:h-[85vh] max-h-[650px] rounded-2xl sm:rounded-3xl border border-blue-500/30 dark:border-blue-500/50 bg-white dark:bg-slate-950 shadow-2xl overflow-hidden text-slate-900 dark:text-white my-auto transform scale-100 transition-all duration-300">
               <button
-  type="button"
-  onClick={closeModal}
-  className="absolute top-2.5 right-2.5 z-40 flex h-7 w-7 sm:h-9 sm:w-9 items-center justify-center rounded-full bg-white/80 dark:bg-slate-950/80 text-slate-700 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-800 hover:text-slate-900 dark:hover:text-white border border-slate-200 dark:border-slate-700/80 backdrop-blur-md transition shadow-lg text-xs sm:text-sm"
->
-  ✕
-</button>
+                type="button"
+                onClick={closeModal}
+                className="absolute top-2.5 right-2.5 z-40 flex h-7 w-7 sm:h-9 sm:w-9 items-center justify-center rounded-full bg-white/80 dark:bg-slate-950/80 text-slate-700 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-800 hover:text-slate-900 dark:hover:text-white border border-slate-200 dark:border-slate-700/80 backdrop-blur-md transition shadow-lg text-xs sm:text-sm"
+              >
+                ✕
+              </button>
 
               <div className="relative w-full h-[42%] sm:h-[50%] md:h-[55%] bg-slate-100 dark:bg-slate-900 border-b border-slate-200 dark:border-blue-500/40 shrink-0 group overflow-hidden">
                 <img
@@ -171,7 +257,6 @@ export default function ProjectsSection() {
                     >
                       <span>Source Code</span>
                       <i className="devicon-github-original text-xs sm:text-sm"></i>
-                      
                     </a>
                   )}
                 </div>

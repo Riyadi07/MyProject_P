@@ -5,12 +5,9 @@ import { projectsData } from '../data/portfolioData';
 export default function ProjectsSection() {
   const [selectedProject, setSelectedProject] = useState(null);
   const [currentImgIndex, setCurrentImgIndex] = useState(0);
-
-  // State untuk Pagination Responsif
   const [currentPage, setCurrentPage] = useState(1);
   const [itemsPerPage, setItemsPerPage] = useState(6);
 
-  // Deteksi ukuran layar: Desktop (lg: >= 1024px) tampil 6, Mobile & Tablet (< 1024px) tampil 4
   useEffect(() => {
     const updateItemsPerPage = () => {
       if (window.innerWidth >= 1024) {
@@ -248,17 +245,35 @@ export default function ProjectsSection() {
                 </div>
 
                 <div className="p-2.5 sm:p-3.5 border-t border-slate-200 dark:border-slate-800/90 bg-slate-50 dark:bg-slate-950 shrink-0 flex items-center justify-end">
-                  {selectedProject.github && (
-                    <a
-                      href={selectedProject.github}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1.5 rounded-xl border border-slate-300 dark:border-slate-800 bg-white dark:bg-slate-900/90 px-3.5 py-1.5 sm:px-4 sm:py-2 text-[11px] sm:text-xs font-semibold text-slate-700 dark:text-slate-300 hover:border-slate-400 dark:hover:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-slate-900 dark:hover:text-white transition"
-                    >
-                      <span>Source Code</span>
-                      <i className="devicon-github-original text-xs sm:text-sm"></i>
-                    </a>
-                  )}
+                  {(selectedProject.github || selectedProject.demo) && (
+  <div className="p-2.5 sm:p-3.5 border-t border-slate-200 dark:border-slate-800/90 bg-slate-50 dark:bg-slate-950 shrink-0 flex items-center justify-end gap-2 sm:gap-3">
+    {selectedProject.github && (
+      <a
+        href={selectedProject.github}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="inline-flex items-center gap-1.5 rounded-xl border border-slate-300 dark:border-slate-800 bg-white dark:bg-slate-900/90 px-3.5 py-1.5 sm:px-4 sm:py-2 text-[11px] sm:text-xs font-semibold text-slate-700 dark:text-slate-300 hover:border-slate-400 dark:hover:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-slate-900 dark:hover:text-white transition"
+      >
+        <span>Source Code</span>
+        <i className="devicon-github-original text-xs sm:text-sm"></i>
+      </a>
+    )}
+
+    {selectedProject.demo && (
+      <a
+        href={selectedProject.demo}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="inline-flex items-center gap-1.5 rounded-xl bg-blue-600 px-3.5 py-1.5 sm:px-4 sm:py-2 text-[11px] sm:text-xs font-semibold text-white hover:bg-blue-700 dark:hover:bg-blue-500 shadow-sm shadow-blue-600/20 transition"
+      >
+        <span>{selectedProject.demo.includes('figma.com') ? 'Live Prototype' : 'Live Demo'}</span>
+        <svg xmlns="http://www.w3.org/2000/svg" className="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+          <path strokeLinecap="round" strokeLinejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+        </svg>
+      </a>
+    )}
+  </div>
+)}
                 </div>
               </div>
             </div>
